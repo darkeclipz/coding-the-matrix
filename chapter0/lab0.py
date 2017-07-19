@@ -128,7 +128,7 @@ print( {s:s for s in S} )
 
 base=5
 digits=set(range(base))
-print( { x*(base^2)+y*base+z:[x,y,z] for x in digits for y in digits for z in digits } )
+print( { x*(base**2)+y*base+z:[x,y,z] for x in digits for y in digits for z in digits } )
 
 [2*x for x in {4:'a',3:'b'}.keys()]
 [2*x for x in {4:'a',3:'b'}.values()]
@@ -159,7 +159,7 @@ print(dict2list({'a':'A', 'b':'B', 'c':'C'}, ['b', 'c', 'a']))
 def list2dict(L, keylist): return { k:v for (k,v) in zip(keylist, L) }
 print( list2dict(['A', 'B', 'C'], ['a', 'b', 'c']) )
 
-def all_3_digit_numbers(base, digits): return { i*base*base+j*base+k for i in range(base) for j in range(base) for k in range(base) }
+def all_3_digit_numbers(base, digits): return { i*base**2+j*base+k for i in range(base) for j in range(base) for k in range(base) }
 print( all_3_digit_numbers(2, {0,1}) )
 print( all_3_digit_numbers(3, {0,1,2}) )
 print( all_3_digit_numbers(10, range(10)) )
