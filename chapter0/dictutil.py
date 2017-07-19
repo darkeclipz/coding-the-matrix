@@ -1,3 +1,5 @@
+# dictutil.py
+
 # Select the elements from the dictionary such that the elements are a member of the set 'keylist'.
 def dict2list(dct, keylist): return [dct[k] for k in keylist]
 

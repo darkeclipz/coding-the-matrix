@@ -153,14 +153,11 @@ print(nextInts([1,2,3]))
 def cubes(L): return [l*l*l for l in L]
 print(cubes([1,2,3]))
 
-import dictutil
-#def dict2list(dct,keylist): return [dct[k] for k in keylist]
-print(dictutil.dict2list({'a':'A', 'b':'B', 'c':'C'}, ['b', 'c', 'a']))
+def dict2list(dct,keylist): return [dct[k] for k in keylist]
+print(dict2list({'a':'A', 'b':'B', 'c':'C'}, ['b', 'c', 'a']))
 
-#def list2dict(L, keylist): return { k:v for (k,v) in zip(keylist, L) }
-print( dictutil.list2dict(['A', 'B', 'C'], ['a', 'b', 'c']) )
-
-print( dictutil.listrange2dict(['A', 'B', 'C']) )
+def list2dict(L, keylist): return { k:v for (k,v) in zip(keylist, L) }
+print(list2dict(['A', 'B', 'C'], ['a', 'b', 'c']) )
 
 def all_3_digit_numbers(base, digits): return { i*base**2+j*base+k for i in range(base) for j in range(base) for k in range(base) }
 print( all_3_digit_numbers(2, {0,1}) )

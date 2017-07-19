@@ -26,7 +26,33 @@ print( abs(1+1j) )
 
 print( (3+4j).conjugate() )
 
-# Adding complex numbers
+# Adding complex numbers (Translating)
 plot({1+2j+z for z in S}, 4)
+
+# Multiplying complex numbers by a positive real number (Scaling)
+plot({1/2*z for z in S}, 4)
+
+# Multiplying complex numbers by a negative number: rotation of 180 degrees
+plot({-1*z for z in S}, 4)
+
+# Multiplying by i: rotation of 90 degrees
+plot({1j+z for z in S}, 4)
+
+# Rotate 90 degrees, scale 1/2, and shift down by 1 unit and right 2 units.
+plot({1/2*1j*z+2-1j for z in S}, 4)
+
+import image
+data = image.file2image('img01.png')
+w = len(data[0])
+h = len(data)
+pts = {complex(x,y) for x in range(w) for y in range(h) if data[y][x][0] < 120}
+def f(z): return complex(w,h)-z
+plot({f(x) for x in pts}, h)
+
+import math
+n=20
+pts = {(math.e**(complex(2, math.pi)/n))**i
+-1 for i in range(20)}
+plot(pts, 8)
 
 input('Press a key to exit and delete the plotted html files...')
