@@ -89,4 +89,77 @@ mylist[1] = 0
 print(mylist)
 
 # Tuples
-print( (1, 1+1, 3) )
+(1,1+1,3)
+mytuple = ("all", "my", "books")
+print( mytuple[1] )
+print( (1, {"A", "B"}, 3.14)[2] )
+
+(a,b) = (1,5-3)
+a,b = 1,5-3
+
+print( [y for (x,y) in [(1,'A'),(2,'B'),(3,'C')]] )
+S = {-4,-2,1,2,5,0}
+triples = [(i,j,k) for i in S for j in S for k in S if (i+j+k) == 0 and (i,j,k) != (0,0,0) ]
+print(triples)
+
+# Other things to iterate over
+(i for i in [1,2,3])
+
+list(range(10))
+print(list(zip([1,3,5],[2,4,6])))
+
+L = ['A', 'B', 'C', 'D', 'E']
+print(list(zip([0,1,2,3,5], L)))
+
+[x*x for x in reversed([4,5,10])]
+
+# Dictionaries
+{4:"four", 3:"three"}[4]
+mydict = {'Neo':'Keanu', 'Morpheus':'Laurence', 'Trinity':'Carrie-Anne'}
+'Oracle' in mydict
+mydict['Oracle'] if 'Oracle' in mydict else 'NOT PRESENT'
+
+print( { k:v for (k,v) in [(3,2),(4,0),(100,1)] } )
+print( { (x,y) : x*y for x in [1,2,3] for y in [1,2,3] } )
+
+print( { x:x*x for x in range(100) })
+S = {'red', 'white', 'blue'}
+print( {s:s for s in S} )
+
+base=5
+digits=set(range(base))
+print( { x*(base^2)+y*base+z:[x,y,z] for x in digits for y in digits for z in digits } )
+
+[2*x for x in {4:'a',3:'b'}.keys()]
+[2*x for x in {4:'a',3:'b'}.values()]
+
+print( [k for k in {'a':1, 'b':2}.keys() |  {'b':3, 'c':4}.keys()] )
+print( [k for k in {'a':1, 'b':2}.keys() &  {'b':3, 'c':4}.keys()] )
+
+print( [myitem for myitem in mydict.items()] )
+print( [k + " is played by " + v for (k,v) in mydict.items()] )
+
+id2salary = {0:1000, 3:990, 1:1200.50}
+names = ['Larry', 'Curly', '', 'Moe']
+print( {  names[k]:v for (k,v) in id2salary.items() } )
+
+# Defining one-line procedures
+def twice(z): return 2*z
+print(twice(2))
+
+def nextInts(L): return [l+1 for l in L]
+print(nextInts([1,2,3]))
+
+def cubes(L): return [l*l*l for l in L]
+print(cubes([1,2,3]))
+
+def dict2list(dct,keylist): return [dct[k] for k in keylist]
+print(dict2list({'a':'A', 'b':'B', 'c':'C'}, ['b', 'c', 'a']))
+
+def list2dict(L, keylist): return { k:v for (k,v) in zip(keylist, L) }
+print( list2dict(['A', 'B', 'C'], ['a', 'b', 'c']) )
+
+def all_3_digit_numbers(base, digits): return { i*base*base+j*base+k for i in range(base) for j in range(base) for k in range(base) }
+print( all_3_digit_numbers(2, {0,1}) )
+print( all_3_digit_numbers(3, {0,1,2}) )
+print( all_3_digit_numbers(10, range(10)) )
