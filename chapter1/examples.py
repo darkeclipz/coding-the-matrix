@@ -18,7 +18,7 @@ print(solve1(10+5j, 5, 20))
 # Playing with Complex numbers
 S = {2+2j, 3+2j, 1.75+1j, 2+1j, 2.25+1j, 2.5+1j, 2.75+1j, 3+1j, 3.25+1j}
 from plotting import plot
-#plot(S, 4)
+plot(S, 4)
 
 # The absolute value of a complex number
 print( abs(3+4j) )
@@ -49,10 +49,14 @@ pts = {complex(x,y) for x in range(w) for y in range(h) if data[y][x][0] < 120}
 def f(z): return complex(w,h)-z
 plot({f(x) for x in pts}, h)
 
+# Euler's formula
 import math
 n=20
-pts = {(math.e**(complex(2, math.pi)/n))**i
--1 for i in range(20)}
-plot(pts, 8)
+w2=math.e**(2*math.pi*1j/n)
+pts2 = {w2**i*3j for i in range(20)}
+plot(pts2, 4)
+
+# Center the image, rotate by 45 degree, and scale by 1/2
+plot({f(x+w/2-h/2j)*1/2*math.e**(math.pi/4*1j) for x in pts}, len(data)) 
 
 input('Press a key to exit and delete the plotted html files...')
