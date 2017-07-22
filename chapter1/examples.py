@@ -36,7 +36,7 @@ plot({1/2*z for z in S}, 4)
 plot({-1*z for z in S}, 4)
 
 # Multiplying by i: rotation of 90 degrees
-plot({1j+z for z in S}, 4)
+plot({1j*z for z in S}, 4)
 
 # Rotate 90 degrees, scale 1/2, and shift down by 1 unit and right 2 units.
 plot({1/2*1j*z+2-1j for z in S}, 4)
